@@ -7,11 +7,9 @@ import Navigation from 'navigation';
 export const Main = (props) => {
     return (
         <section>
+            <Navigation />
             <div>
-                <div>
-                    <Navigation />
-                    {props.children}
-                </div>
+                {props.children}
             </div>
         </section>
     )

@@ -21,5 +21,5 @@ app.get('/', function(req, res){
 app.use(express.static('public'));
 
 app.listen(PORT, function() {
-    console.log('Weather App listening on port ' + PORT);
+    console.log('Timer App listening on port ' + PORT);
 });
