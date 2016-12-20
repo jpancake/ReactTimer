@@ -1,7 +1,7 @@
 /**
  * Created by PANCAK3 on 12/19/2016.
  */
-import React, {Component} from 'react'
+import React, {Component, PropTypes} from 'react'
 
 export default class CountdownForm extends Component {
     constructor (props) {
@@ -31,5 +31,6 @@ export default class CountdownForm extends Component {
 }
 
 CountdownForm.propTypes = {
-    onSetCountdown: React.propsTypes.number
+    onSetCountdown: PropTypes.func
 }
+
