@@ -8,9 +8,11 @@ export const Main = (props) => {
     return (
         <section>
             <Navigation />
-            <div>
-                {props.children}
-            </div>
+            <section className="row align-spaced">
+                <div className="column small-4 medium-6 large-6">
+                    {props.children}
+                </div>
+            </section>
         </section>
     )
 };
