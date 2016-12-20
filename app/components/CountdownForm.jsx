@@ -1,24 +1,24 @@
 /**
  * Created by PANCAK3 on 12/19/2016.
  */
-import React, {Component} from 'react';
+import React, {Component} from 'react'
 
 export default class CountdownForm extends Component {
-    constructor(props) {
-        super(props);
-        this._onSubmit = this._onSubmit.bind(this);
+    constructor (props) {
+        super(props)
+        this._onSubmit = this._onSubmit.bind(this)
     }
-    _onSubmit(e) {
-          e.preventDefault();
-          let strSeconds = this.refs.seconds.value;
+    _onSubmit (e) {
+          e.preventDefault()
+          let strSeconds = this.refs.seconds.value
 
-          if(strSeconds.match(/^[0-9]*$/)) {
-              this.refs.seconds.value = '';
-              this.props.onSetCountdown(parseInt(strSeconds, 10));
+          if (strSeconds.match(/^[0-9]*$/)) {
+              this.refs.seconds.value = ''
+              this.props.onSetCountdown(parseInt(strSeconds, 10))
           }
     }
 
-    render() {
+    render () {
         return (
             <section>
                 <form ref="form" onSubmit={this._onSubmit} className="countdown-form">
@@ -28,4 +28,8 @@ export default class CountdownForm extends Component {
             </section>
         )
     }
+}
+
+CountdownForm.propTypes = {
+    onSetCountdown: React.propsTypes.number
 }

@@ -1,4 +1,4 @@
-var webpack = require('webpack');
+var webpack = require('webpack')
 
 module.exports = {
     entry: [
@@ -7,7 +7,12 @@ module.exports = {
         './app/app.jsx'
     ],
     externals: {
-      jquery: 'jQuery'
+        jquery: 'jQuery',
+        jsdom: 'window',
+        cheerio: 'window',
+        'react/addons': true,
+        'react/lib/ExecutionEnvironment': true,
+        'react/lib/ReactContext': true
     },
     plugins: [
         new webpack.ProvidePlugin({
@@ -54,7 +59,7 @@ module.exports = {
             }
         ]
     },
-    devtool: 'cheap-module-eval-source-map'
-};
+    devtool: 'inline-source-map'
+}
 
-//If you are getting this error, try setting the value to either "inline-source-map" or "eval-source-map" instead.
+// If you are getting this error, try setting the value to either "inline-source-map" or "eval-source-map" instead.
