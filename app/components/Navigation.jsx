@@ -1,8 +1,5 @@
-/**
- * Created by PANCAK3 on 12/17/2016.
- */
-import React from 'react';
-import {Link, IndexLink} from 'react-router';
+import React from 'react'
+import {Link, IndexLink} from 'react-router'
 
 const Navigation = (props) => {
         return (
@@ -23,6 +20,6 @@ const Navigation = (props) => {
                 </div>
             </nav>
         )
-};
+}
 
-export default Navigation;
+export default Navigation
