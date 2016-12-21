@@ -33,13 +33,19 @@ export default class Countdown extends Component {
             }
         }
     }
-
+    componentWillUnmount() {
+        clearInterval(this.timer)
+        this.timer = undefined
+    }
     _startTimer() {
         this.timer = setInterval(() => {
             let newCount = this.state.count - 1
             this.setState({
                 count: newCount >= 0 ? newCount : 0
             })
+            if (newCount === 0) {
+               this.setState({countdownStatus: 'stopped'})
+            }
         }, 1000)
     }
 
