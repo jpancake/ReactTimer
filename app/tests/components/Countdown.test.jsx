@@ -1,3 +1,4 @@
+'use strict'
 import expect from 'expect' /* globals describe, it, done */
 import React from 'react'
 import TestUtils from 'react-addons-test-utils'
@@ -22,14 +23,33 @@ describe('Countdown', () => {
             }, 1001)
         })
 
-        it('countdown should not be negative', () => {
+        it('should never set count less than zero', () => {
             let countdown = TestUtils.renderIntoDocument(<Countdown/>)
             countdown._handleSetCountdown(1)
 
             setTimeout(() => {
                 expect(countdown.state.count).toBe(0)
-                done()
             }, 3001)
+        })
+
+        it('should pause countdown on pause status', () => {
+            let countdown = TestUtils.renderIntoDocument(<Countdown/>)
+            countdown._handleSetCountdown(3)
+            countdown._handleStatusChange('paused')
+            setTimeout(() => {
+                expect(countdown.state.count).toBe(3)
+                expect(countdown.state.countdownStatus).toBe('paused')
+            }, 1001)
+        })
+
+        it('should reset count on stopped status', () => {
+            let countdown = TestUtils.renderIntoDocument(<Countdown/>)
+            countdown._handleSetCountdown(3)
+            countdown._handleStatusChange('stopped')
+            setTimeout(() => {
+                expect(countdown.state.count).toBe(0)
+                expect(countdown.state.countdownStatus).toBe('stopped')
+            }, 1001)
         })
     })
 })

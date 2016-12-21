@@ -73,6 +73,7 @@ export default class Countdown extends Component {
 
         return (
             <section>
+                <h1 className="page-title">Countdown App</h1>
                 <Clock totalSeconds={count}/>
                 {renderControlStatus()}
             </section>
